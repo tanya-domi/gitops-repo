@@ -1,0 +1,36 @@
+global:
+  configMapName: online-boutique-dev-configmap
+  
+  redis:
+    address: "172.18.0.4:6379" # Dev Memorystore IP
+
+  replicaCount: 2
+
+  features:
+    enableTracing: "true"
+    enable_profiler: "false"
+
+  ingress:
+    host: dev.tanyadominicsheytech.eu  # 
+    annotations:
+      kubernetes.io/ingress.global-static-ip-name: "online-boutique-dev-ip"
+      networking.gke.io/managed-certificates: "boutique-dev-ssl-cert" 
+      
+  # Add overrides
+releaseInfo:
+  enabled: true
+
+frontend:
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
+
+checkoutservice:
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
+
+shippingservice:
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1

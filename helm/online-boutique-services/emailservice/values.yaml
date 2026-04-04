@@ -1,0 +1,68 @@
+deploymentName: emailservice-deployment
+serviceName: emailservice
+
+appLabel: emailservice
+appName: emailservice
+jobLabel: emailservice
+
+replicaCount: 1
+
+image:
+  repository: ghcr.io/tanya-domi/emailservice
+  tag: "docker-18816493323"
+  pullPolicy: IfNotPresent
+  imagePullSecrets:
+    - name: my-registry-key
+
+annotations:
+  instrumentation.opentelemetry.io/inject-python: app-instrumentation
+
+containers:
+  - name: server
+    ports:
+      - containerPort: 8080
+    env:
+      - name: PORT
+        value: "8080"
+      - name: DISABLE_PROFILER
+        value: "1"
+      - name: OTEL_SERVICE_NAME
+        value: emailservice
+
+
+    readinessProbe:
+      periodSeconds: 5
+      grpc:
+        port: 8080
+    livenessProbe:
+      periodSeconds: 5
+      grpc:
+        port: 8080
+    # resources:
+    #   requests:
+    #     cpu: 100m
+    #     memory: 64Mi
+    #   limits:
+    #     cpu: 200m
+    #     memory: 128Mi
+
+    resources:
+      requests:
+        cpu: 10m
+        memory: 64Mi
+      limits:
+        cpu: 200m
+        memory: 128Mi
+
+service:
+  enabled: true
+  type: ClusterIP
+  name: grpc
+  port: 5000
+  targetPort: 8080
+
+serviceAccount:
+  create: true
+  name: "emailservice"
+
+profiler_enabled: "false"

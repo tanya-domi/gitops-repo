@@ -1,0 +1,19 @@
+# argocd-bootstrap/values.yaml
+global:
+  repoURL: https://github.com/tanya-domi/gitops-repo.git
+  targetRevision: main  
+
+services:
+  online-boutique:
+    name: online-boutique
+    path: helm/online-boutique-app  
+
+    namespace: boutique
+    # argocd-bootstrap/values.yaml
+environments:
+  dev:
+    path: helm/online-boutique-app  # Local Git Folder
+    targetRevision: main
+    valueFile: env/dev.yaml
+
+ 

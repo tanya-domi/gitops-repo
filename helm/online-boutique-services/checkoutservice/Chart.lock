@@ -1,0 +1,6 @@
+dependencies:
+- name: online-boutique-common
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  version: 0.1.1
+digest: sha256:dafd320198ee8c3b503d4d4f75729bf6436cdb77fe2b69781a506c5a6ffb239e
+generated: "2026-04-04T09:45:30.064855464+02:00"

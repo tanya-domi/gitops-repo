@@ -1,0 +1,5 @@
+region     = "us-central1"
+zone       = "us-central1-a"
+project_id = "project-6b691de7-de66-4961-b80"
+bucket     = "tanya-terraform-state"
+github_token = "ghp_your_token_here"

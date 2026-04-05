@@ -1,29 +1,27 @@
-{{- range $key, $app := .Values.services }}
----
+{{- range $name, $config := .Values.services }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ $app.name }}
+  name: {{ $name }}
   namespace: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    repoURL: {{ $.Values.global.repoURL }}
-    targetRevision: {{ $.Values.global.targetRevision }}
-    path: {{ $app.path }}
+    # Points to your OCI Helm Registry
+    repoURL: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
+    chart: {{ $name }}
+    targetRevision: {{ $config.version | default "0.1.1" }}
     helm:
-      # This points to your environment-specific overrides
+      # This pulls the environment-specific values from your gitops-repo
       valueFiles:
-        - env/dev.yaml
+        - https://raw.githubusercontent.com/tanya-domi/gitops-repo/main/helm/online-boutique-app/env/{{ $.Values.env }}.yaml
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ $app.namespace }}
+    namespace: {{ $.Values.namespace | default "online-boutique" }}
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
 {{- end }}

@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: root-boutique
+  name: online-boutique-root
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/tanya-domi/gitops-repo.git
+    targetRevision: HEAD
     path: argocd-bootstrap
-    targetRevision: main
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -16,3 +16,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
+  # apply this file manually in the cluster, It points to the argocd-bootstrap folder in GitHub repo.

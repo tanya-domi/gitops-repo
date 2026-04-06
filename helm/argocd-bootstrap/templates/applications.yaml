@@ -4,18 +4,20 @@ kind: Application
 metadata:
   name: {{ $name }}
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: {{ $name }}=us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/boutique-repo/{{ $name }}
+    argocd-image-updater.argoproj.io/{{ $name }}.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/write-back-method: argocd
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
-    # Your OCI Registry for the actual charts
     repoURL: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
     chart: {{ $name }}
     targetRevision: {{ $config.version | default "0.1.1" }}
     helm:
       valueFiles:
-        # This points to /helm/online-boutique-app/env/dev.yaml
         - {{ $.Values.repoURL }}/online-boutique-app/env/{{ $.Values.env }}.yaml
   destination:
     server: https://kubernetes.default.svc
@@ -24,5 +26,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    createNamespace: true
 ---
 {{- end }}

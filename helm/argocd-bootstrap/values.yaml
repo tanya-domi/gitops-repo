@@ -1,5 +1,9 @@
+---
 env: dev
 namespace: online-boutique
+# This path points to where env/ folder sits
+repoURL: https://raw.githubusercontent.com/tanya-domi/gitops-repo/main/helm
+
 services:
   adservice: { version: "0.1.1" }
   cartservice: { version: "0.1.1" }
@@ -12,7 +16,4 @@ services:
   productcatalogservice: { version: "0.1.1" }
   recommendationservice: { version: "0.1.1" }
   shippingservice: { version: "0.1.1" }
-
-
-
  

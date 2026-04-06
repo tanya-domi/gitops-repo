@@ -9,14 +9,14 @@ metadata:
 spec:
   project: default
   source:
-    # Points to your OCI Helm Registry
+    # Your OCI Registry for the actual charts
     repoURL: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
     chart: {{ $name }}
     targetRevision: {{ $config.version | default "0.1.1" }}
     helm:
-      # This pulls the environment-specific values from your gitops-repo
       valueFiles:
-        - https://raw.githubusercontent.com/tanya-domi/gitops-repo/main/helm/online-boutique-app/env/{{ $.Values.env }}.yaml
+        # This points to /helm/online-boutique-app/env/dev.yaml
+        - {{ $.Values.repoURL }}/online-boutique-app/env/{{ $.Values.env }}.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ $.Values.namespace | default "online-boutique" }}
@@ -24,4 +24,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+---
 {{- end }}

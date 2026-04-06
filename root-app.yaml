@@ -8,7 +8,10 @@ spec:
   source:
     repoURL: https://github.com/tanya-domi/gitops-repo.git
     targetRevision: HEAD
-    path: argocd-bootstrap
+    path: helm/argocd-bootstrap
+    helm:
+      valueFiles:
+        - values.yaml
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
@@ -16,5 +19,6 @@ spec:
     automated:
       prune: true
       selfHeal: true
+      
 
   # apply this file manually in the cluster, It points to the argocd-bootstrap folder in GitHub repo.

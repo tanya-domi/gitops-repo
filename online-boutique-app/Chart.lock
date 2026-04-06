@@ -1,39 +1,39 @@
 dependencies:
 - name: online-boutique-common
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: cartservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: currencyservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: emailservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: recommendationservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: adservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: loadgenerator
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: checkoutservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: frontend
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: shippingservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: productcatalogservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
 - name: paymentservice
-  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/tanya-domi-online-boutique-microservices
+  repository: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
   version: 0.1.1
-digest: sha256:54854cf0a579dcbd7bb3a88805c326df0dccd5bd8c3a5c8349fe09b53b947ffd
-generated: "2026-04-04T10:05:06.906322876+02:00"
+digest: sha256:c71fab16f889a465e7767f826dade73c2dd18fd87cf125a57f601104f897830d
+generated: "2026-04-06T10:10:37.71432644+02:00"

@@ -14,7 +14,7 @@ metadata:
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
-  sources:
+  source:
     repoURL: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
     chart: {{ $name }}
     targetRevision: {{ $config.version | default "0.1.1" }}

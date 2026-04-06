@@ -6,8 +6,8 @@ metadata:
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: {{ $name }}=us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/boutique-repo/{{ $name }}
-    argocd-image-updater.argoproj.io/{{ $name }}.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/write-back-method: argocd
+    argocd-image-updater.argoproj.io/{{ $name }}.helm.image-name: image.repository
+    argocd-image-updater.argoproj.io/{{ $name }}.helm.image-tag: image.tag
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:

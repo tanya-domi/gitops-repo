@@ -2,7 +2,7 @@ global:
   configMapName: online-boutique-dev-configmap
   
   redis:
-    address: "172.18.0.4:6379" # Dev Memorystore IP
+    address: "10.243.0.4:6379" # Dev Memorystore IP
 
   replicaCount: 2
 

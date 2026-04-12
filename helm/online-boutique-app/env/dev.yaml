@@ -16,73 +16,21 @@ global:
       kubernetes.io/ingress.global-static-ip-name: "online-boutique-dev-ip"
       networking.gke.io/managed-certificates: "boutique-dev-ssl-cert" 
       
-  # Add overrides
+  # Add overrides values
 releaseInfo:
   enabled: true
 
-adservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/adservice
-    tag: v0.1.4
-
-cartservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/cartservice
-    tag: v0.1.12
+frontend:
+  podDisruptionBudget:
+    enabled: true
+    minAvailable: 1
 
 checkoutservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/checkoutservice
-    tag: v0.1.13
   podDisruptionBudget:
     enabled: true
     minAvailable: 1
-
-currencyservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/currencyservice
-    tag: v0.1.14
- 
-emailservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/emailservice
-    tag: v0.1.15
-
-frontend:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/frontend
-    tag: v0.1.15
-  podDisruptionBudget:
-    enabled: true
-    minAvailable: 1
-
-loadgenerator:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/loadgenerator
-    tag: v0.1.15
-
-
-paymentservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/paymentservice
-    tag: v0.1.15
-
-
-productcatalogservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/productcatalogservice
-    tag: v0.1.15
-
-
-recommendationservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/recommendationservice
-    tag: v0.1.15
 
 shippingservice:
-  image:
-    repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/shippingservice
-    tag: v0.1.15
   podDisruptionBudget:
     enabled: true
     minAvailable: 1

@@ -1,0 +1,25 @@
+---
+env: dev
+namespace: online-boutique
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: boutique
+  source:
+    # This is your GCP Artifact Registry URL
+    repoURL: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
+    targetRevision: 0.1.1 
+    
+services:
+  - adservice
+  - cartservice
+  - checkoutservice
+  - currencyservice
+  - emailservice
+  - frontend
+  - loadgenerator
+  - paymentservice
+  - productcatalogservice
+  - recommendationservice
+  - shippingservice
+ 

@@ -36,8 +36,8 @@ spec:
     - name: {{ . }}
       namePattern: {{ . }}
       images:
-        - {{ . }}
-  images:
+        - name: {{ . }}  
+  
     - name: {{ . }}
       repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/{{ . }}
       updateStrategy:
@@ -46,4 +46,5 @@ spec:
         imageTag: image.tag
   updateMethod: argocd
 {{- end }}
+
 # I installed the newest version (v1.1.1) of the ArgoCD Image Updater. In this version, the controller looks for a Custom Resource (CR) called ImageUpdater instead of just looking at the annotations on your Application.The older version of Image Updater only used annotations.

@@ -40,7 +40,7 @@ spec:
   updateMethod: argocd
   applicationRefs:
     - name: {{ . }}
-      namePattern: {{ . }}  
+      namePattern: {{ . }}
       images:
         - alias: {{ . }}
           imageName: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/{{ . }}

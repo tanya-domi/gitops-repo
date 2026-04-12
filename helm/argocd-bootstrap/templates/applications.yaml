@@ -32,7 +32,7 @@ metadata:
   name: {{ . }}-updater
   namespace: argocd
 spec:
-  applicationRef:
+  applicationRefs:
     name: {{ . }}
   images:
     - name: {{ . }}

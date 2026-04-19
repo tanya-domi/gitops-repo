@@ -2,8 +2,12 @@
 env: dev
 project_id: "project-6b691de7-de66-4961-b80"
 namespace: boutique
-
-destination:
+spec:
+  source:
+    # Artifact Registry URL
+    repoURL: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
+    targetRevision: 0.1.1 
+  destination:
     server: https://kubernetes.default.svc
     namespace: boutique
     

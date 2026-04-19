@@ -1,6 +1,7 @@
 ---
 env: dev
-namespace: online-boutique
+project_id: "project-6b691de7-de66-4961-b80"
+namespace: boutique
 spec:
   destination:
     server: https://kubernetes.default.svc
@@ -22,4 +23,6 @@ services:
   - productcatalogservice
   - recommendationservice
   - shippingservice
+
+
  

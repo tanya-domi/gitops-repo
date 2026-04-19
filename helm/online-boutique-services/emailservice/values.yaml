@@ -15,7 +15,7 @@ image:
   #   - name: my-registry-key
 
 annotations:
-  instrumentation.opentelemetry.io/inject-python: app-instrumentation
+  instrumentation.opentelemetry.io/inject-python: "false"
 
 containers:
   - name: server

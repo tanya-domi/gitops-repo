@@ -23,5 +23,7 @@ services:
   - recommendationservice
   - shippingservice
 
+  - online-boutique-app
+
 
  

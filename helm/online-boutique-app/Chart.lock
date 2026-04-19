@@ -1,0 +1,39 @@
+dependencies:
+- name: online-boutique-common
+  repository: file://../online-boutique-common
+  version: 0.1.1
+- name: cartservice
+  repository: file://../online-boutique-services/cartservice
+  version: 0.1.1
+- name: currencyservice
+  repository: file://../online-boutique-services/currencyservice
+  version: 0.1.1
+- name: emailservice
+  repository: file://../online-boutique-services/emailservice
+  version: 0.1.1
+- name: recommendationservice
+  repository: file://../online-boutique-services/recommendationservice
+  version: 0.1.1
+- name: adservice
+  repository: file://../online-boutique-services/adservice
+  version: 0.1.1
+- name: loadgenerator
+  repository: file://../online-boutique-services/loadgenerator
+  version: 0.1.1
+- name: checkoutservice
+  repository: file://../online-boutique-services/checkoutservice
+  version: 0.1.1
+- name: frontend
+  repository: file://../online-boutique-services/frontend
+  version: 0.1.1
+- name: shippingservice
+  repository: file://../online-boutique-services/shippingservice
+  version: 0.1.1
+- name: productcatalogservice
+  repository: file://../online-boutique-services/productcatalogservice
+  version: 0.1.1
+- name: paymentservice
+  repository: file://../online-boutique-services/paymentservice
+  version: 0.1.1
+digest: sha256:c6593b46d23fc2bb2d25c1f089ccc09330806f06d7234453eda8db37169e460c
+generated: "2026-04-19T15:25:06.918587129+02:00"

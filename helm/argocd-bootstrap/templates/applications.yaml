@@ -15,11 +15,14 @@ spec:
   source:
     repoURL: {{ $.Values.spec.source.repoURL }}
     targetRevision: {{ $.Values.spec.source.targetRevision }}
+    # Path to the specific service folder
     path: helm/online-boutique-services/{{ . }}
     helm:
       valueFiles:
-        - ../../online-boutique-app/env/{{ $.Values.env }}.yaml
-        - values.yaml
+        # Load the common environment overrides (dev.yaml
+        # Relative path from the service folder to the env folder
+        - "../../online-boutique-app/env/{{ $.Values.env }}.yaml"
+        - "values.yaml"
   destination:
     server: {{ $.Values.spec.destination.server }}
     namespace: {{ $.Values.spec.destination.namespace }}

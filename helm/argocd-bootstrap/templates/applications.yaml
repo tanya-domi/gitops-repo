@@ -16,11 +16,7 @@ spec:
     repoURL: {{ $.Values.spec.source.repoURL }}
     targetRevision: {{ $.Values.spec.source.targetRevision }}
     # Path 
-    {{- if eq . "online-boutique-app" }}
-    path: helm/online-boutique-app
-    {{- else }}
-    path: helm/online-boutique-services/{{ . }}
-    {{- end }}
+    path: {{ if eq . "online-boutique-app" }}helm/online-boutique-app{{ else }}helm/online-boutique-services/{{ . }}{{ end }}
     helm:
       valueFiles:
         # Load the common environment overrides (dev.yaml

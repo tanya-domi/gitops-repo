@@ -36,4 +36,4 @@ dependencies:
   repository: file://../online-boutique-services/paymentservice
   version: 0.1.1
 digest: sha256:c6593b46d23fc2bb2d25c1f089ccc09330806f06d7234453eda8db37169e460c
-generated: "2026-04-19T15:25:06.918587129+02:00"
+generated: "2026-04-19T16:35:42.128454101+02:00"

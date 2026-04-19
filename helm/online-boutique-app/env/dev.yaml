@@ -34,3 +34,12 @@ shippingservice:
   podDisruptionBudget:
     enabled: true
     minAvailable: 1
+
+# disable auto-instrumentation
+emailservice:
+  annotations:
+    instrumentation.opentelemetry.io/inject-python: "false" 
+
+recommendationservice:
+  annotations:
+    instrumentation.opentelemetry.io/inject-python: "false"

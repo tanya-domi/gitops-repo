@@ -1,6 +1,6 @@
 apiVersion: v2
 name: online-boutique-app #dev-env
-description: A Helm chart for Kubernetes
+description: Shared infrastructure and configuration for the Online Boutique
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -22,49 +22,3 @@ dependencies:
   - name: online-boutique-common
     version: 0.1.1
     repository: file://../online-boutique-common
-
-  - name: cartservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/cartservice
-    
-  - name: currencyservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/currencyservice
-  
-  - name: emailservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/emailservice
-    
-  - name: recommendationservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/recommendationservice
-    
-  - name: adservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/adservice
-
-  - name: loadgenerator 
-    version: 0.1.1
-    repository: file://../online-boutique-services/loadgenerator
-
-  - name: checkoutservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/checkoutservice
-     
-  - name: frontend
-    version: 0.1.1
-    repository: file://../online-boutique-services/frontend
-
-  - name: shippingservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/shippingservice
-
-  - name: productcatalogservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/productcatalogservice
-
-  - name: paymentservice
-    version: 0.1.1
-    repository: file://../online-boutique-services/paymentservice
-
-                

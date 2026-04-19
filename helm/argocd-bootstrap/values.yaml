@@ -9,7 +9,7 @@ spec:
     targetRevision: 0.1.1 
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: boutique
     
 services:
   - adservice

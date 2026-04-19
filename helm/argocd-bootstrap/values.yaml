@@ -1,59 +1,24 @@
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: {{ . }}
-  namespace: argocd
-  annotations:
-    argocd-image-updater.argoproj.io/write-back-method: git
-    argocd-image-updater.argoproj.io/{{ . }}.update-strategy: newest-build
-    argocd-image-updater.argoproj.io/image-list: {{ . }}=us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/{{ . }}
-    argocd-image-updater.argoproj.io/{{ . }}.helm.image-tag: image.tag
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/tanya-domi/gitops-repo.git
-    targetRevision: main
-    path: helm/online-boutique-services/{{ . }}
-    helm:
-      valueFiles:
-        - ../../online-boutique-app/env/dev.yaml
-        - values.yaml
-  destination:
+---
+env: dev
+project_id: "project-6b691de7-de66-4961-b80"
+namespace: boutique
+
+destination:
     server: https://kubernetes.default.svc
     namespace: boutique
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    createNamespace: true
-
-
-
-# ---
-# env: dev
-# project_id: "project-6b691de7-de66-4961-b80"
-# namespace: boutique
-# spec:
-#   source:
-#     # Artifact Registry URL
-#     repoURL: oci://us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/helm-charts
-#     targetRevision: 0.1.1 
-#   destination:
-#     server: https://kubernetes.default.svc
-#     namespace: boutique
     
-# services:
-#   - adservice
-#   - cartservice
-#   - checkoutservice
-#   - currencyservice
-#   - emailservice
-#   - frontend
-#   - loadgenerator
-#   - paymentservice
-#   - productcatalogservice
-#   - recommendationservice
-#   - shippingservice
+services:
+  - adservice
+  - cartservice
+  - checkoutservice
+  - currencyservice
+  - emailservice
+  - frontend
+  - loadgenerator
+  - paymentservice
+  - productcatalogservice
+  - recommendationservice
+  - shippingservice
 
 
  

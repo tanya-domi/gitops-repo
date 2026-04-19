@@ -1,32 +1,65 @@
-{{- range .Values.services }}
----
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: {{ . }}
   namespace: argocd
   annotations:
-    # Image Updater logic (using the variables from your values.yaml)
-    argocd-image-updater.argoproj.io/write-back-method: helm
-    argocd-image-updater.argoproj.io/image-list: {{ . }}=us-central1-docker.pkg.dev/{{ $.Values.project_id }}/app-images/{{ . }}
+    argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/{{ . }}.update-strategy: newest-build
+    argocd-image-updater.argoproj.io/image-list: {{ . }}=us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/{{ . }}
     argocd-image-updater.argoproj.io/{{ . }}.helm.image-tag: image.tag
 spec:
   project: default
   source:
-    repoURL: {{ $.Values.spec.source.repoURL }}
-    chart: {{ . }}
-    targetRevision: {{ $.Values.spec.source.targetRevision }}
+    repoURL: https://github.com/tanya-domi/gitops-repo.git
+    targetRevision: main
+    path: helm/online-boutique-services/{{ . }}
     helm:
       valueFiles:
-        - https://raw.githubusercontent.com/tanya-domi/gitops-repo/main/helm/online-boutique-services/{{ . }}/values.yaml
+        - ../../online-boutique-app/env/dev.yaml
+        - values.yaml
   destination:
-    server: {{ $.Values.spec.destination.server }}
-    namespace: {{ $.Values.spec.destination.namespace }}
+    server: https://kubernetes.default.svc
+    namespace: boutique
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
     createNamespace: true
-{{- end }}
+
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: Application
+# metadata:
+#   name: {{ . }}
+#   namespace: argocd
+#   annotations:
+#     argocd-image-updater.argoproj.io/{{ . }}.update-strategy: newest-build
+#     argocd-image-updater.argoproj.io/write-back-method: git
+#     # This points the updater to the specific service image
+#     argocd-image-updater.argoproj.io/image-list: {{ . }}=us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/{{ . }}
+# spec:
+#   project: default
+#   source:
+#     repoURL: https://github.com/tanya-domi/gitops-repo.git
+#     targetRevision: main
+#     # Path to the specific service chart
+#     path: helm/online-boutique-services/{{ . }} 
+#     helm:
+#       valueFiles:
+#         # Relative path from the 'path' above to your env file
+#         # '..' goes up to 'online-boutique-services'
+#         # '../..' goes up to 'helm'
+#         - ../../online-boutique-app/env/dev.yaml
+#         # Also include the service's own local values
+#         - values.yaml 
+#   destination:
+#     server: https://kubernetes.default.svc
+#     namespace: boutique
+#   syncPolicy:
+#     automated:
+#       prune: true
+#       selfHeal: true
+#     createNamespace: true
+
 # I installed the newest version (v1.1.1) of the ArgoCD Image Updater. In this version, the controller looks for a Custom Resource (CR) called ImageUpdater instead of just looking at the annotations on your Application.The older version of Image Updater only used annotations.

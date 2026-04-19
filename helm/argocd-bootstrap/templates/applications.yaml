@@ -7,6 +7,7 @@ metadata:
   namespace: argocd
   annotations:
     # Image Updater logic (using the variables from your values.yaml)
+    argocd-image-updater.argoproj.io/write-back-method: helm
     argocd-image-updater.argoproj.io/image-list: {{ . }}=us-central1-docker.pkg.dev/{{ $.Values.project_id }}/app-images/{{ . }}
     argocd-image-updater.argoproj.io/{{ . }}.update-strategy: newest-build
     argocd-image-updater.argoproj.io/{{ . }}.helm.image-tag: image.tag

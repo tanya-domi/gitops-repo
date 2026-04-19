@@ -19,9 +19,11 @@ spec:
     path: {{ if eq . "online-boutique-app" }}helm/online-boutique-app{{ else }}helm/online-boutique-services/{{ . }}{{ end }}
     helm:
       valueFiles:
-        # Load the common environment overrides (dev.yaml
-        # Relative path from the service folder to the env folder
+        {{- if eq . "online-boutique-app" }}
+        - "env/{{ $.Values.env }}.yaml"
+        {{- else }}
         - "../../online-boutique-app/env/{{ $.Values.env }}.yaml"
+        {{- end }}
         - "values.yaml"
   destination:
     server: {{ $.Values.spec.destination.server }}

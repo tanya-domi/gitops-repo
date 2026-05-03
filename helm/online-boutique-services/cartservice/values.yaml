@@ -14,7 +14,7 @@ replicaCount: 1
 
 image:
   repository: us-central1-docker.pkg.dev/project-1cdbea51-6334-4e02-967/app-images/cartservice
-  tag: "v0.1.18"
+  tag: "v0.1.20"
   pullPolicy: IfNotPresent
   # imagePullSecrets:
   #   - name: my-registry-key

@@ -8,7 +8,7 @@ jobLabel: adservice
 replicaCount: 1
 
 image:
-  repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/adservice
+  repository: us-central1-docker.pkg.dev/project-1cdbea51-6334-4e02-967/app-images/adservice
   tag: "v0.1.15"
   pullPolicy: IfNotPresent
   # imagePullSecrets:

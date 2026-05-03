@@ -13,7 +13,7 @@ jobLabel: cartservice
 replicaCount: 1
 
 image:
-  repository: us-central1-docker.pkg.dev/project-6b691de7-de66-4961-b80/app-images/cartservice
+  repository: us-central1-docker.pkg.dev/project-1cdbea51-6334-4e02-967/app-images/cartservice
   tag: "v0.1.18"
   pullPolicy: IfNotPresent
   # imagePullSecrets:

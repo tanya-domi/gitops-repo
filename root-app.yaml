@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/tanya-domi/gitops-repo.git
     targetRevision: main
-    path: helm/argocd-bootstrap # Path to your bootstrap chart
+    path: helm/argocd-bootstrap 
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
